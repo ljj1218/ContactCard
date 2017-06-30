@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Card</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type = "text/javascript">
+            $(document).ready(function(){
+                $("#button").click(function(){
+	        		$("#right").append( 
+	        			"<div class='card'>" + 
+		        			"<h3>" + $("#first").val() + " " + $("#last").val() + "</h3>" + 
+		        			"<p>Click for description!</p>" + 
+	        			"</div>");
+	        		return false
+        		});
+        	});
+        	$( document ).on("click", "p", function() {
+                $( ".initial").hide(function() {
+                    $(this).replaceWith("<div>" + $( "#descript" ).val() +"</div>");
+                });
+        	});
+        </script>
+
+        <style>
+            #left, #right{
+                display: inline-block;
+                vertical-align: top;
+                width: 300px;
+            }
+            
+            label{
+                font-size: 13pt;
+            }
+
+            textarea{
+                width: 221px;
+                height: 140px;
+            }
+
+        
+            .card{
+                height: 80px;
+                width: 250px;
+                border: 1px solid black;
+                margin: 5px;
+                text-align: center;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <div id = "left">
+            <form>
+                <label for="first">First Name:</label>
+				<input type ="text" name="first" id ="first">
+                <br>
+				<label for="last">Last Name:</label>
+				<input type ="text" name="last" id ="last">
+                <br>
+				<label for="desc">Description:</label>
+                <br>
+				<textarea id="description"></textarea>
+                <br>
+                <input type = "submit" value = "Add User" id = "button">
+            </form>
+        </div>
+        <div id = "right"></div>
+    </body>
+</html>
